@@ -19,7 +19,6 @@
 package org.wicketface.panels;
 
 import org.apache.wicket.markup.html.panel.Panel;
-import org.wicketface.markup.behaviors.FacebookLoginBehavior;
 import org.wicketface.markup.xfbml.FacebookConnectButton;
 import org.wicketface.pages.FacebookAwarePage;
 
@@ -51,7 +50,6 @@ public class FacebookConnectPanel extends Panel {
         		return !((FacebookAwarePage)FacebookConnectPanel.this.getPage()).isFacebookConnected();
         	}
         };
-        buttonLoginFacebook.add(new FacebookLoginBehavior());
         this.add(buttonLoginFacebook);
     }
     

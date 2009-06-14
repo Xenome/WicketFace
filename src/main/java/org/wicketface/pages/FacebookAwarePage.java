@@ -31,7 +31,7 @@ import org.apache.wicket.markup.html.WebPage;
 import org.wicketface.application.FacebookApplication;
 import org.wicketface.markup.util.FacebookInitScript;
 
-public class FacebookAwarePage extends WebPage {
+public abstract class FacebookAwarePage extends WebPage {
 
 	private static final String COOKIE_USER = "user";
 	private static final String COOKIE_SESSION_EXPIRES = "expires";

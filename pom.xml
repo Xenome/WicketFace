@@ -12,10 +12,10 @@
 			<resource>
 				<directory>src/main/java</directory>
 				<includes>
-                    <include>**/*.properties</include>
-                    <include>**/*.html</include>
-                    <include>**/*.css</include>
-                </includes>
+					<include>**/*.properties</include>
+					<include>**/*.html</include>
+					<include>**/*.css</include>
+				</includes>
 			</resource>
 		</resources>
 
@@ -48,6 +48,11 @@
 			<artifactId>servlet-api</artifactId>
 			<version>2.4</version>
 			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.json</groupId>
+			<artifactId>json</artifactId>
+			<version>20090211</version>
 		</dependency>
 	</dependencies>
 </project>

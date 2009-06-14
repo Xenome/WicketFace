@@ -1,0 +1,49 @@
+body {
+    background-color: #1E1E1E;
+    font-family: "Trebuchet MS", Verdana, Helvetica, Arial, sans-serif;
+    font-size: 14px;
+    margin: 0;
+}
+
+#header {
+    border-bottom: 5px solid #3B5998;
+    color: #FEFEFE;
+    height: 85px;
+}
+
+#header-content {
+    width: 800px;
+    margin: 0 auto;
+    padding-top: 20px;
+}
+
+
+#app-name {
+    display: block;
+    margin: auto;
+    width: 300px;
+    float:left;
+    font-size: 3.0em;
+}
+
+#app-name  a {
+    color: #FFFFFF;
+    text-decoration: none;
+}
+
+
+#facebook-header {
+    width: 200px;
+    float: right;
+}
+
+
+#main {
+    background-color: #FEFEFE;
+}
+
+#main-content {
+    display: table;
+    margin: auto;
+    width: 800px;
+}

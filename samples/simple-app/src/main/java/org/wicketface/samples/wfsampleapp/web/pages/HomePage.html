@@ -20,13 +20,28 @@
     xmlns:wicket="http://wicket.apache.org/">
 
 <head>
+<title>WicketFace sample application</title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 </head>
 
 <body>
-    <wicket:child/>
-    <script src="http://static.ak.connect.facebook.com/js/api_lib/v0.4/FeatureLoader.js.php" type="text/javascript"></script>
-    <script wicket:id="facebookInitScript" type="text/javascript"></script>
+<wicket:extend>
+    <h1>Welcome to the WicketFace sample application</h1>
+    <p>
+        This application will show you some of the features of the project
+        <br/>
+        To connect the application to Facebook, click on the "Connect" button below
+    </p>
+    <fb:login-button wicket:id="facebookConnectButton"></fb:login-button>
+    <div wicket:id="demoList">
+	    Now that you are connected, you can check some of the demo pages:
+	    <ul>
+	       <li><a wicket:id="publishToFeedLink">Send messages to your feed</a></li>
+	       <li>Using comment boxes</li>
+	       <li>Using the Facebook API</li>
+	    </ul>
+    </div>
+</wicket:extend>
 </body>
 </html>
 

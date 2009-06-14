@@ -20,13 +20,28 @@
     xmlns:wicket="http://wicket.apache.org/">
 
 <head>
+<title>WicketFace sample application</title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 </head>
 
 <body>
-    <wicket:child/>
-    <script src="http://static.ak.connect.facebook.com/js/api_lib/v0.4/FeatureLoader.js.php" type="text/javascript"></script>
-    <script wicket:id="facebookInitScript" type="text/javascript"></script>
+<wicket:extend>
+    <h1>Publish something in your Wall</h1>
+    <p>
+        Using the Facebook API we can publish directly in our wall feed. Write something in the text
+        area and click on the Publish button.
+        <br/>
+        Remember that the template have to be previously registered for your app, and its ID 
+        specified in the webapp.properties file 
+    </p>
+    <form wicket:id="publishInWalForm">
+        <input type="text" wicket:id="publishInWallTextInput"/>
+        <input type="submit" value="Publish"/>
+    </form>
+    <br/>
+    <div wicket:id="publishingToFeed"/>
+    <br/>
+</wicket:extend>
 </body>
 </html>
 

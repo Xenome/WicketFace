@@ -1,7 +1,10 @@
+.wicketface {
+	color:#FEFEFE;
+    font-size:12px;
+}
+
 .wicketface-connect-box {
     float:left;
-    font-size: 12px;
-    color: #FEFEFE;
 }
 
 .wicketface-connect-message {

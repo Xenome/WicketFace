@@ -18,6 +18,7 @@
  */
 package org.wicketface.application;
 
+import org.apache.wicket.Application;
 import org.apache.wicket.protocol.http.WebApplication;
 import org.wicketface.pages.CrossDomainReceiverPage;
 
@@ -31,6 +32,10 @@ public abstract class FacebookApplication extends WebApplication {
 		super.init();
 		mountBookmarkablePage("/facebookconnect", CrossDomainReceiverPage.class);
 	}
+	
+    public static FacebookApplication get() {
+        return (FacebookApplication) Application.get();
+    }
 
 	public String getFacebookApiKey() {
 		return facebookApiKey;
