@@ -56,6 +56,7 @@ public class HomePage extends BasePage {
         this.add(demoList);
         
         demoList.add(new BookmarkablePageLink("publishToFeedLink", PublishToFeedPage.class));
+        demoList.add(new BookmarkablePageLink("commentsBoxLink", CommentsPage.class));
         
 	}
 }

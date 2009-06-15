@@ -26,6 +26,7 @@ import java.util.Properties;
 import org.apache.wicket.Application;
 import org.apache.wicket.markup.html.WebPage;
 import org.wicketface.application.FacebookApplication;
+import org.wicketface.samples.wfsampleapp.web.pages.CommentsPage;
 import org.wicketface.samples.wfsampleapp.web.pages.HomePage;
 import org.wicketface.samples.wfsampleapp.web.pages.PublishToFeedPage;
 
@@ -51,6 +52,7 @@ public class WicketFaceSampleApplication extends FacebookApplication {
          */
         mountBookmarkablePage("/home", HomePage.class);
         mountBookmarkablePage("/publish", PublishToFeedPage.class);
+        mountBookmarkablePage("/comments", CommentsPage.class);
        
         /*
          * Remove wicket tags from result HTML
