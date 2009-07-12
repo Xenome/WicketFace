@@ -57,24 +57,24 @@ public abstract class FacebookAwarePage extends WebPage {
 
 	public boolean isFacebookConnected() {
 		String facebookUser = getFacebookUser();
-		if (facebookUser!=null) {
+		if ( facebookUser != null ) {
 			return validateSignature();
 		}
 		return false;
 	}
 
 	public String getFacebookApiKey() {
-		return  ((FacebookApplication)this.getApplication()).getFacebookApiKey();
+		return  ( (FacebookApplication)this.getApplication() ).getFacebookApiKey();
 	}
 
 	public String getFacebookAppSecret() {
-		return  ((FacebookApplication)this.getApplication()).getFacebookAppSecret();
+		return  ( (FacebookApplication)this.getApplication() ).getFacebookAppSecret();
 	}
 	
 	public boolean validateSignature() {
 		try {
 			// Checks if this was calculated before to avoid several calculations per page build cycle
-			if (this.signature!=null && this.signature.equals(getFacebookSignature())) {
+			if ( this.signature != null && this.signature.equals(getFacebookSignature()) ) {
 				return true;
 			}
 			
@@ -94,7 +94,7 @@ public abstract class FacebookAwarePage extends WebPage {
 		getFacebookAppSecret();
 
 		// calculate its md5 hash
-		MessageDigest digest =MessageDigest.getInstance("MD5");
+		MessageDigest digest = MessageDigest.getInstance("MD5");
 		digest.update(message.getBytes(),0,message.length());
 		return new BigInteger(1,digest.digest()).toString(16);
 	}
@@ -102,7 +102,7 @@ public abstract class FacebookAwarePage extends WebPage {
 
 	public String getFacebookUser() {
 		Cookie cookie =  getWebRequestCycle().getWebRequest().getCookie(getFacebookApiKey()+"_"+COOKIE_USER);
-		if (cookie!=null) {
+		if ( cookie != null ) {
 			return cookie.getValue();
 		}
 		return null;
@@ -110,7 +110,7 @@ public abstract class FacebookAwarePage extends WebPage {
 
 	public String getFacebookSessionExpires() {
 		Cookie cookie = getWebRequestCycle().getWebRequest().getCookie(getFacebookApiKey()+"_"+COOKIE_SESSION_EXPIRES);
-		if (cookie!=null) {
+		if ( cookie != null ) {
 			return cookie.getValue();
 		}
 		return null;
@@ -118,7 +118,7 @@ public abstract class FacebookAwarePage extends WebPage {
 
 	public String getFacebookSessionKey() {
 		Cookie cookie =  getWebRequestCycle().getWebRequest().getCookie(getFacebookApiKey()+"_"+COOKIE_SESSION_KEY);
-		if (cookie!=null) {
+		if ( cookie != null ) {
 			return cookie.getValue();
 		}
 		return null;
@@ -126,7 +126,7 @@ public abstract class FacebookAwarePage extends WebPage {
 
 	public String getFacebookSessionSecret() {
 		Cookie cookie =  getWebRequestCycle().getWebRequest().getCookie(getFacebookApiKey()+"_"+COOKIE_SESSION_SECRET);
-		if (cookie!=null) {
+		if ( cookie != null ) {
 			return cookie.getValue();
 		}
 		return null;
@@ -134,7 +134,7 @@ public abstract class FacebookAwarePage extends WebPage {
 
 	public String getFacebookSignature() {
 		Cookie cookie =  getWebRequestCycle().getWebRequest().getCookie(getFacebookApiKey());
-		if (cookie!=null) {
+		if ( cookie != null ) {
 			return cookie.getValue();
 		}
 		return null;

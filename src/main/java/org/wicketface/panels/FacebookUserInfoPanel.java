@@ -32,14 +32,14 @@ public class FacebookUserInfoPanel extends Panel {
 		super(id);
 		
 		FacebookProfilePic facebookProfilePic = new FacebookProfilePic("facebookProfilePic");
-		facebookProfilePic.setFacebookLogo(true);
-		facebookProfilePic.setLinked(false);
+		facebookProfilePic.setFacebookLogo(Boolean.TRUE);
+		facebookProfilePic.setLinked(Boolean.FALSE);
 		facebookProfilePic.setSize(FacebookProfilePic.SIZE_SQUARE);
 		this.add(facebookProfilePic);
 		
 		FacebookUserName facebookName = new FacebookUserName("facebookName");
-		facebookName.setFirstnameonly(true);
-		facebookName.setUseyou(false);
+		facebookName.setFirstnameonly(Boolean.TRUE);
+		facebookName.setUseyou(Boolean.FALSE);
 		this.add(facebookName);
 		
 		WebMarkupContainer facebookLogoutLink = new WebMarkupContainer("facebookLogoutLink");

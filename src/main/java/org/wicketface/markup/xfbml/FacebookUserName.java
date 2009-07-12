@@ -50,49 +50,49 @@ public class FacebookUserName extends WebMarkupContainer {
 	protected final void onComponentTag(final ComponentTag tag){
 		checkComponentTag(tag, "name");
 		
-		if (this.uid!=null) {
+		if ( this.uid != null ) {
 			tag.put("uid", this.uid.toString());
 		} else  {
 			tag.put("uid","loggedinuser");
 		}
 		
-		if (this.firstnameonly!=null) {
+		if ( this.firstnameonly != null) {
 			tag.put("firstnameonly", this.firstnameonly.toString());
 		}
 		
-		if (this.linked!=null) {
+		if ( this.linked != null ) {
 			tag.put("linked", this.linked.toString());
 		}
 		
-		if (this.lastnameonly!=null) {
+		if ( this.lastnameonly != null ) {
 			tag.put("lastnameonly", this.lastnameonly.toString());
 		}
 		
-		if (this.possessive!=null) {
+		if ( this.possessive != null ) {
 			tag.put("possessive", this.possessive.toString());
 		}
-		
-		if (this.reflexive!=null) {
+		 
+		if ( this.reflexive != null ) {
 			tag.put("reflexive", this.reflexive.toString());
 		}
 		
-		if (this.shownetwork!=null) {
+		if ( this.shownetwork != null ) {
 			tag.put("shownetwork", this.shownetwork.toString());
 		}
 		
-		if (this.useyou!=null) {
+		if ( this.useyou != null ) {
 			tag.put("useyou", this.useyou.toString());
 		}
 		
-		if (this.capitalize!=null) {
+		if ( this.capitalize != null ) {
 			tag.put("capitalize", this.capitalize.toString());
 		}
-		
-		if (this.subjectid!=null) {
+
+		if ( this.subjectid != null ) {
 			tag.put("subjectid", this.subjectid.toString());
 		}
 		
-		if (this.ifcantsee!=null) {
+		if ( this.ifcantsee != null ) {
 			tag.put("ifcantsee", this.ifcantsee);
 		}
 	}
@@ -105,67 +105,67 @@ public class FacebookUserName extends WebMarkupContainer {
 		this.uid = uid;
 	}
 
-	public boolean isFirstnameonly() {
+	public Boolean isFirstnameonly() {
 		return this.firstnameonly;
 	}
 
-	public void setFirstnameonly(boolean firstnameonly) {
+	public void setFirstnameonly(Boolean firstnameonly) {
 		this.firstnameonly = firstnameonly;
 	}
 
-	public boolean isLinked() {
+	public Boolean isLinked() {
 		return this.linked;
 	}
 
-	public void setLinked(boolean linked) {
+	public void setLinked(Boolean linked) {
 		this.linked = linked;
 	}
 
-	public boolean isLastnameonly() {
+	public Boolean isLastnameonly() {
 		return this.lastnameonly;
 	}
 
-	public void setLastnameonly(boolean lastnameonly) {
+	public void setLastnameonly(Boolean lastnameonly) {
 		this.lastnameonly = lastnameonly;
 	}
 
-	public boolean isPossessive() {
+	public Boolean isPossessive() {
 		return this.possessive;
 	}
 
-	public void setPossessive(boolean possessive) {
+	public void setPossessive(Boolean possessive) {
 		this.possessive = possessive;
 	}
 
-	public boolean isReflexive() {
+	public Boolean isReflexive() {
 		return this.reflexive;
 	}
 
-	public void setReflexive(boolean reflexive) {
+	public void setReflexive(Boolean reflexive) {
 		this.reflexive = reflexive;
 	}
 
-	public boolean isShownetwork() {
+	public Boolean isShownetwork() {
 		return this.shownetwork;
 	}
 
-	public void setShownetwork(boolean shownetwork) {
+	public void setShownetwork(Boolean shownetwork) {
 		this.shownetwork = shownetwork;
 	}
 
-	public boolean isUseyou() {
+	public Boolean isUseyou() {
 		return this.useyou;
 	}
 
-	public void setUseyou(boolean useyou) {
+	public void setUseyou(Boolean useyou) {
 		this.useyou = useyou;
 	}
 
-	public boolean isCapitalize() {
+	public Boolean isCapitalize() {
 		return this.capitalize;
 	}
 
-	public void setCapitalize(boolean capitalize) {
+	public void setCapitalize(Boolean capitalize) {
 		this.capitalize = capitalize;
 	}
 

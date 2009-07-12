@@ -48,22 +48,22 @@ public class FacebookProfilePic extends WebMarkupContainer {
 	protected final void onComponentTag(final ComponentTag tag){
 		checkComponentTag(tag, "profile-pic");
 		
-		if (this.uid!=null) {
+		if ( this.uid != null ) {
 			tag.put("uid", this.uid.toString());
 		} else  {
 			tag.put("uid","loggedinuser");
 		}
 		
-		if (this.size!=null) {
+		if ( this.size != null ) {
 			tag.put("size", this.size);
 		}
 		
-		if (this.linked!=null) {
+		if ( this.linked != null) {
 			tag.put("linked", this.linked.toString());
 		}
 		
-		if (this.facebookLogo!=null) {
-			tag.put("facebook-logo", this.facebookLogo);
+		if ( this.facebookLogo != null ) {
+			tag.put("facebook-logo", this.facebookLogo.booleanValue());
 		}
 	}
 	

@@ -38,7 +38,7 @@ public abstract class FacebookApplication extends WebApplication {
     }
 
 	public String getFacebookApiKey() {
-		return facebookApiKey;
+		return this.facebookApiKey;
 	}
 	
 	public void setFacebookApiKey(String facebookApiKey) {

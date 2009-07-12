@@ -59,13 +59,13 @@ public class PublishToFeedPanel extends Panel implements IHeaderContributor {
 
 			@Override
 			public boolean isVisible() {
-				return showLoading;
+				return PublishToFeedPanel.this.showLoading;
 			}
 		};
-		this.add(publishToFeedLoading);
-		publishToFeedLoading.setOutputMarkupId(true);
-		publishToFeedLoading.setOutputMarkupPlaceholderTag(true);
-		publishToFeedLoading.add( new Image("publishToFeedLoadingSpinner", 
+		this.add(this.publishToFeedLoading);
+		this.publishToFeedLoading.setOutputMarkupId(true);
+		this.publishToFeedLoading.setOutputMarkupPlaceholderTag(true);
+		this.publishToFeedLoading.add( new Image("publishToFeedLoadingSpinner", 
 				new ResourceReference(PublishToFeedPanel.class, "images/wicketface-loader.gif")));
 	}
 
@@ -80,7 +80,6 @@ public class PublishToFeedPanel extends Panel implements IHeaderContributor {
 
 
 	public void renderHead(IHeaderResponse response) {
-		// TODO add parameters to specify popup title and prompt
 		if (this.submitToFacebook) {
 			String jsonTemplateData = buildJSONObject(templateData).toString();
 			String script;
