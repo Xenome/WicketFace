@@ -32,23 +32,28 @@ import org.wicketface.exceptions.WicketFaceException;
 
 public class PublishToFeedPanel extends Panel implements IHeaderContributor {
 	private static final long serialVersionUID = 2741530732354836025L;
-	
+
 	private Map<String,String> templateData;
 	private Long templateId; 
 	private boolean submitToFacebook;
-	protected boolean showLoading = true;
-	
+	private String prompt; 
+	private String message;
+	protected boolean showLoading;
+
+
 	protected WebMarkupContainer publishToFeedLoading;
-	
+
 
 	public PublishToFeedPanel(String id, Map<String,String> templateData, Long templateId, 
-			boolean submitToFacebook) {
+			boolean submitToFacebook, String prompt, String message) {
 		super(id);
 
 		this.templateData = templateData;
 		this.templateId = templateId;
 		this.submitToFacebook = submitToFacebook;
-		
+		this.prompt = prompt;
+		this.message = message;
+
 		publishToFeedLoading = new WebMarkupContainer("publishToFeedLoading") {
 			private static final long serialVersionUID = -4009639032323247738L;
 
@@ -63,9 +68,14 @@ public class PublishToFeedPanel extends Panel implements IHeaderContributor {
 		publishToFeedLoading.add( new Image("publishToFeedLoadingSpinner", 
 				new ResourceReference(PublishToFeedPanel.class, "images/wicketface-loader.gif")));
 	}
-	
+
+	public PublishToFeedPanel(String id, Map<String,String> templateData, Long templateId,
+			boolean submitToFacebook) {
+		this(id, templateData, templateId, submitToFacebook, null, null);
+	}
+
 	public PublishToFeedPanel(String id, Map<String,String> templateData, Long templateId) {
-		this(id, templateData, templateId, true);
+		this(id, templateData, templateId, true, null, null);
 	}
 
 
@@ -73,24 +83,35 @@ public class PublishToFeedPanel extends Panel implements IHeaderContributor {
 		// TODO add parameters to specify popup title and prompt
 		if (this.submitToFacebook) {
 			String jsonTemplateData = buildJSONObject(templateData).toString();
-			response.renderOnLoadJavascript("var template_data="+jsonTemplateData+";" +
-					"FB.Connect.showFeedDialog("+templateId.toString()+",template_data);" +
-					"document.getElementById('"+publishToFeedLoading.getMarkupId()+"')." +
-					"style.visibility='hidden'");
+			String script;
+			if (prompt!=null && message!=null) {
+				script = "var template_data="+jsonTemplateData+";" +
+				"FB.Connect.showFeedDialog("+templateId.toString()+",template_data);" +
+				"document.getElementById('"+publishToFeedLoading.getMarkupId()+"')." +
+				"style.visibility='hidden'";
+			} else {
+				script = "var template_data="+jsonTemplateData+";" +
+				"FB.Connect.showFeedDialog("+templateId.toString()+",template_data," +
+				", null, null, FB.FeedStorySize.shortStory, FB.RequireConnect.promptConnect," +
+				this.prompt+","+ this.message+");" +
+				"document.getElementById('"+publishToFeedLoading.getMarkupId()+"')." +
+				"style.visibility='hidden'";
+			}
+			response.renderOnLoadJavascript(script);
 		}
 	}
-	
+
 	private JSONObject buildJSONObject(Map<String,String> data) 
-		throws WicketFaceException{
+	throws WicketFaceException{
 
 		JSONObject jsonTemplateData = new JSONObject();
 		if ( data != null && !data.isEmpty() ) {
 			for ( String key : data.keySet() ) {
-					try {
-						jsonTemplateData.put(key, data.get(key));
-					} catch (JSONException e) {
-						throw new WicketFaceException("Error building JSON object");
-					}
+				try {
+					jsonTemplateData.put(key, data.get(key));
+				} catch (JSONException e) {
+					throw new WicketFaceException("Error building JSON object");
+				}
 			}
 		}
 		return jsonTemplateData;

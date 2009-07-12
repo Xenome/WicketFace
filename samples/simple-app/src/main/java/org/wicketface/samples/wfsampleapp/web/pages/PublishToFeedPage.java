@@ -58,7 +58,7 @@ public class PublishToFeedPage extends BasePage {
 			this.publishInWallTextInput.clearInput();
 			
 			PublishToFeedPage.this.addOrReplace(new PublishToFeedPanel("publishingToFeed", templateData,
-					WicketFaceSampleApplication.get().getTemplateId()));
+					WicketFaceSampleApplication.get().getTemplateId(),true,"esto es el prompt","que dices"));
 			
 		}
 	}

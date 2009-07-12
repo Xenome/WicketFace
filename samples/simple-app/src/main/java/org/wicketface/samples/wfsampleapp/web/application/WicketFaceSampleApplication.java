@@ -25,6 +25,8 @@ import java.util.Properties;
 
 import org.apache.wicket.Application;
 import org.apache.wicket.markup.html.WebPage;
+import org.apache.wicket.protocol.http.HttpSessionStore;
+import org.apache.wicket.session.ISessionStore;
 import org.wicketface.application.FacebookApplication;
 import org.wicketface.samples.wfsampleapp.web.pages.CommentsPage;
 import org.wicketface.samples.wfsampleapp.web.pages.HomePage;
@@ -44,6 +46,13 @@ public class WicketFaceSampleApplication extends FacebookApplication {
 		 */
 		this.setFacebookApiKey(getAppProperties().getProperty("facebook.apikey"));
 		this.setFacebookAppSecret(getAppProperties().getProperty("facebook.appsecret"));
+		
+		/*
+		 * Remove thread monitoring from resource watcher (For  Google App Engine compatibility)
+		 * This will allow development mode for the application
+		 */
+		this.getResourceSettings().setResourcePollFrequency(null);
+
 		
 		this.templateId = new Long(getAppProperties().getProperty("publish.template.id"));
 		
@@ -69,6 +78,16 @@ public class WicketFaceSampleApplication extends FacebookApplication {
     public static WicketFaceSampleApplication get() {
         return (WicketFaceSampleApplication) Application.get();
     }
+
+    
+    /*
+     * override the newSessionStore() method to return HttpSessionStore, because the default second 
+     * level session store uses java.io.File, which is not allowed by Google App Engine
+     */
+    @Override
+	protected ISessionStore newSessionStore() {	
+		return new HttpSessionStore(this);
+	}
 
 	private static Properties getAppProperties(){
 		ClassLoader loader = WicketFaceSampleApplication.class.getClassLoader();  
