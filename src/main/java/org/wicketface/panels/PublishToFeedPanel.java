@@ -83,7 +83,7 @@ public class PublishToFeedPanel extends Panel implements IHeaderContributor {
 		if (this.submitToFacebook) {
 			String jsonTemplateData = buildJSONObject(templateData).toString();
 			String script;
-			if (prompt!=null && message!=null) {
+			if ( prompt != null && message != null ) {
 				script = "var template_data="+jsonTemplateData+";" +
 				"FB.Connect.showFeedDialog("+templateId.toString()+",template_data);" +
 				"document.getElementById('"+publishToFeedLoading.getMarkupId()+"')." +

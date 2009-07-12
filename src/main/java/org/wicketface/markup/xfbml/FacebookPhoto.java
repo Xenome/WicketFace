@@ -48,11 +48,11 @@ public class FacebookPhoto extends WebMarkupContainer {
 		
 		tag.put("pid", this.pid);
 		
-		if (this.size!=null) {
+		if ( this.size != null ) {
 			tag.put("size", this.size);
 		}
 		
-		if (this.align!=null) {
+		if ( this.align != null ) {
 			tag.put("align", this.align);
 		}
 	}

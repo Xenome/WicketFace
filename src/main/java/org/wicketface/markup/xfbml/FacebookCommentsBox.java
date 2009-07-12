@@ -42,35 +42,35 @@ public class FacebookCommentsBox extends WebMarkupContainer {
     protected final void onComponentTag(final ComponentTag tag){
         checkComponentTag(tag, "comments");
         
-        if (this.xid!=null) {
+        if ( this.xid != null ) {
 			tag.put("xid", this.xid);
 		}
         
-        if (this.numposts!=null) {
+        if ( this.numposts != null ) {
 			tag.put("numposts", this.numposts.toString());
 		}
         
-        if (this.width!=null) {
+        if ( this.width != null ) {
 			tag.put("width", this.width);
 		}
         
-        if (this.css!=null) {
+        if ( this.css != null ) {
 			tag.put("css", this.css);
 		}
         
-        if (this.title!=null) {
+        if ( this.title != null ) {
 			tag.put("title", this.title);
 		}
         
-        if (this.simple!=null) {
+        if ( this.simple != null ) {
 			tag.put("simple", this.simple.toString());
 		}
         
-        if (this.reverse!=null) {
+        if ( this.reverse != null ) {
 			tag.put("reverse", this.reverse.toString());
 		}
         
-        if (this.quiet!=null) {
+        if ( this.quiet != null ) {
 			tag.put("quiet", this.quiet.toString());
 		}
 	}
