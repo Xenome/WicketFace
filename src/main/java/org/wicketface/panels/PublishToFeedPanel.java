@@ -49,18 +49,18 @@ public class PublishToFeedPanel extends Panel implements IHeaderContributor {
 		this.templateId = templateId;
 		this.submitToFacebook = submitToFacebook;
 		
-		publishToFeedLoading = new WebMarkupContainer("publishToFeedLoading") {
+		this.publishToFeedLoading = new WebMarkupContainer("publishToFeedLoading") {
 			private static final long serialVersionUID = -4009639032323247738L;
 
 			@Override
 			public boolean isVisible() {
-				return showLoading;
+				return PublishToFeedPanel.this.showLoading;
 			}
 		};
-		this.add(publishToFeedLoading);
-		publishToFeedLoading.setOutputMarkupId(true);
-		publishToFeedLoading.setOutputMarkupPlaceholderTag(true);
-		publishToFeedLoading.add( new Image("publishToFeedLoadingSpinner", 
+		this.add(this.publishToFeedLoading);
+		this.publishToFeedLoading.setOutputMarkupId(true);
+		this.publishToFeedLoading.setOutputMarkupPlaceholderTag(true);
+		this.publishToFeedLoading.add( new Image("publishToFeedLoadingSpinner", 
 				new ResourceReference(PublishToFeedPanel.class, "images/wicketface-loader.gif")));
 	}
 	
@@ -71,11 +71,11 @@ public class PublishToFeedPanel extends Panel implements IHeaderContributor {
 
 	public void renderHead(IHeaderResponse response) {
 		// TODO add parameters to specify popup title and prompt
-		if (this.submitToFacebook) {
-			String jsonTemplateData = buildJSONObject(templateData).toString();
-			response.renderOnLoadJavascript("var template_data="+jsonTemplateData+";" +
-					"FB.Connect.showFeedDialog("+templateId.toString()+",template_data);" +
-					"document.getElementById('"+publishToFeedLoading.getMarkupId()+"')." +
+		if ( this.submitToFacebook ) {
+			String jsonTemplateData = buildJSONObject(this.templateData).toString();
+			response.renderOnLoadJavascript("var template_data=" + jsonTemplateData+";" +
+					"FB.Connect.showFeedDialog(" + this.templateId.toString() + ",template_data);" +
+					"document.getElementById('" + this.publishToFeedLoading.getMarkupId() + "')." +
 					"style.visibility='hidden'");
 		}
 	}

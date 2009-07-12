@@ -42,7 +42,7 @@ public class FacebookConnectPanel extends Panel {
         facebookUser.setOutputMarkupPlaceholderTag(true);
         this.add(facebookUser);
         
-        buttonLoginFacebook = new FacebookConnectButton("facebookConnectButton"){
+        this.buttonLoginFacebook = new FacebookConnectButton("facebookConnectButton"){
 			private static final long serialVersionUID = -2199948587128000067L;
 
 			@Override
@@ -50,7 +50,7 @@ public class FacebookConnectPanel extends Panel {
         		return !((FacebookAwarePage)FacebookConnectPanel.this.getPage()).isFacebookConnected();
         	}
         };
-        this.add(buttonLoginFacebook);
+        this.add(this.buttonLoginFacebook);
     }
     
     public FacebookConnectButton getFacebookLoginButton() {
